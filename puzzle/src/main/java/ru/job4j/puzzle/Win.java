@@ -4,7 +4,7 @@ public class Win {
     public static boolean check(int[][] board) {
         boolean rsl = false;
         for (int i = 0; i < board.length; i++) {
-            if (monoHorizontal(board, i) || monoVertical(board, i)) {
+            if (board[i][i] == 1 && (monoHorizontal(board, i) || monoVertical(board, i))) {
                     rsl = true;
                     break;
                 }
@@ -12,10 +12,10 @@ public class Win {
         return rsl;
     }
 
-    public static boolean monoHorizontal(int[][] board, int i) {
+    public static boolean monoHorizontal(int[][] board, int row) {
         boolean columnWin = true;
         for ( int index = 0; index < board.length; index++) {
-            if (board[i][index] != 1) {
+            if (board[row][index] != 1) {
                 columnWin = false;
                 break;
             }
@@ -23,16 +23,14 @@ public class Win {
         return columnWin;
     }
 
-    public static boolean monoVertical(int[][] board, int i) {
+    public static boolean monoVertical(int[][] board, int col) {
         boolean cellWin = true;
-        for (int[] ints : board) {
-            if (ints[i] != 1) {
+        for (int index = 0; index < board.length; index++) {
+            if (board[index][col] != 1) {
                 cellWin = false;
                 break;
             }
         }
         return cellWin;
     }
-
-
 }
