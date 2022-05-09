@@ -14,7 +14,7 @@ public class Win {
 
     public static boolean monoHorizontal(int[][] board, int row) {
         boolean columnWin = true;
-        for ( int index = 0; index < board.length; index++) {
+        for (int index = 0; index < board.length; index++) {
             if (board[row][index] != 1) {
                 columnWin = false;
                 break;
